@@ -15,26 +15,40 @@ $livros = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
   <title>Livraria Digital</title>
 
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="estilo.css?v=2">
 </head>
 <body>
   
-  <header>
+<header>
     <h1>Livraria DIgital</h1>
     <p>Encontre seus proximos livros favoritos!</p>
-  </header>
+</header>
 
-  <main>
+<main>
     <h2>Nosso catálogo de e-books</h2>
 
-    <?php foreach ($livros as $livro):?>
-      <div class= "livro">
-         <h3> <?= htmlspecialchars($livro['titulo']) ?></h3>
-         <p> Autor: <?= htmlspecialchars($livro['autor']) ?></p>
-         <p> Preço: R$ <?=number_format($livro['preco'],2,',','.') ?> </p>
-       </div>
-    <?php endforeach; ?>
+    <div class="catalogo">
 
-  </main>
+        <?php foreach ($livros as $livro):?>
+          <div class= "livro">
+
+            <?php if (!empty($livro['imagem'])):?>
+               <img 
+                   src="<?=htmlspecialchars($livro['imagem']) ?> "
+                   alt="Capa de <?=htmlspecialchars($livro['titulo']) ?>"
+                   class="capa-livro"
+                 >
+
+             <?php endif; ?>
+
+            <h3> <?= htmlspecialchars($livro['titulo']) ?></h3>
+            <p> Autor: <?= htmlspecialchars($livro['autor']) ?></p>
+            <p> Preço: R$ <?=number_format($livro['preco'],2,',','.') ?> </p>
+          </div>
+       <?php endforeach; ?>
+    </div>
+
+</main>
+
 </body>
 </html> 

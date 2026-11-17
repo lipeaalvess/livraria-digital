@@ -4,13 +4,13 @@
 
 body{
     margin: 0;
-    fount-family:Arial, sans-serif;
+    font-family:Arial, sans-serif;
     background-color: #f4f5f7;
     color: #222;
 }
 
 header {
-    background-color: #c56205;
+    background-color: #3c87e9;
     color:white;
     padding: 30px;
     text-align: center;
@@ -18,7 +18,7 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 32;
+    font-size: 32px;
 }
 
 header p {
@@ -27,8 +27,8 @@ header p {
 
 main {
     max-width: 1200px;
-    margin; 40px auto;
-    padding: 0 20px
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 main h2 {
@@ -56,9 +56,51 @@ main h2 {
 
 .livro p:last-child {
     color: #16803c;
-    font-size 18px;
+    font-size: 18px;
     font-weight: bold;
 }
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+
+}
+
+.livro {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+}
+
+@media (max-width: 768px){
+    .catalogo {
+        grid-template-columns: 1fr;
+    }
+}
+
+:root {
+    --romance: #D95B78;
+    --ficcao: #2478C7;
+    --fantasia: #32945A;
+    --terror: #353840;
+    --aventura: #E88928;
+}
+
+.capa-livro{
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 15px;
+}
+
+
+
+
 
 
 
